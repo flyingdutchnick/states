@@ -2,7 +2,9 @@
 
 var juke = angular.module('juke', ['ui.router'])
 
-juke.config(function($stateProvider) {
+juke.config(function($stateProvider, $urlRouterProvider) {
+	$urlRouterProvider.when('', '/albums');
+
 	$stateProvider.state('albums', {
 		url : '/albums',
 		templateUrl: '/albums.html',
@@ -29,6 +31,7 @@ juke.config(function($stateProvider) {
 		controller: 'AlbumCtrl'
 	});
 	$stateProvider.state('artist', {
+		// $urlRouterProvider.when('/artist/:id', '/artist/:id/albums');
 		url: '/artist/:id',
 		templateUrl: '/artist.html',
 		controller: 'ArtistCtrl'
